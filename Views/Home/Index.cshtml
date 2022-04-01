@@ -11,7 +11,9 @@
         <vc:teams></vc:teams>
     </div>
     <div class="col-10">
-        <h1>Replace this with whatever the active button is</h1>
+        <h1>
+            Bowlers: @ViewBag.header
+        </h1>
         <table class="table table-bordered table-striped">
 
             <thead class="font-weight-bold">
@@ -24,7 +26,7 @@
                     <td>State</td>
                     <td>Zip Code</td>
                     <td>Phone Number</td>
-                    <td colspan="2"><a class="btn btn-primary" asp-controller="Home" asp-action="Add">New Bowler</a></td>
+                    <td colspan="2"><a class="btn btn-primary" asp-controller="Home" asp-action="AddBowler">New Bowler</a></td>
                 </tr>
             </thead>
             <tbody>
@@ -41,8 +43,8 @@
                         <td>@b.BowlerPhoneNumber</td>
                         @*<td>@b.Team.TeamName</td>*@
 
-                        <td><a asp-controller="Home" asp-action="Edit" asp-route-applicationid="@b.BowlerID">Edit</a></td>
-                        <td><a asp-controller="Home" asp-action="Delete" asp-route-applicationid="@b.BowlerID">Delete</a></td>
+                        <td><a asp-controller="Home" asp-action="Edit" asp-route-bowlerid="@b.BowlerID">Edit</a></td>
+                        <td><a asp-controller="Home" asp-action="Delete" asp-route-bowlerid="@b.BowlerID">Delete</a></td>
                     </tr>
                 }
             </tbody>

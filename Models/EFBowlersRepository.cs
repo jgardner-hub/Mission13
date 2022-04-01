@@ -20,17 +20,21 @@ namespace Mission13.Models
         //fix all of these methods
         public void AddBowler(Bowler b)
         {
-            throw new NotImplementedException();
+            _context.Add(b);
+            _context.SaveChanges();
         }
 
         public void SaveBowler(Bowler b)
         {
-            throw new NotImplementedException();
+            _context.Update(b);
+            _context.SaveChanges();
         }
 
         public void DeleteBowler(Bowler b)
         {
-            throw new NotImplementedException();
+            _context.Remove(b);
+            _context.SaveChanges();
+
         }
     }
 }

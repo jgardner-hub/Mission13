@@ -61,8 +61,12 @@ namespace Mission13
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    name: "Filtering",
+                    pattern: "Team{teamName}",
+                    defaults: new { Controller = "Home", action = "Index"});
+
+
+                    endpoints.MapDefaultControllerRoute();
             });
         }
     }

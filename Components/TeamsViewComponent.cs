@@ -19,7 +19,7 @@ namespace Mission13.Views.Shared.Components
         public IViewComponentResult Invoke()
         {
 
-            //ViewBag.SelectedCategory = RouteData?.Values["categoryType"];
+            ViewBag.SelectedTeam = RouteData?.Values["teamName"];
 
             //var cats = repo.Books
             //    .Select(x => x.Category)
