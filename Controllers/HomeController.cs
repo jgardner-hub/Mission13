@@ -29,9 +29,11 @@ namespace Mission13.Controllers
         {
 
             ViewBag.header = teamName;
+            ViewBag.tester = "test";
             var blah = _repo.Bowlers
                 .Include(x => x.Team)
                 .Where(x => x.Team.TeamName == teamName || teamName == null)
+                //Use && for and || is or
                 //.FromSqlRaw("SELECT * FROM bowlers")
                 .ToList();
 
@@ -48,11 +50,23 @@ namespace Mission13.Controllers
         [HttpPost]
         public IActionResult AddBowler(Bowler b)
         {
-            
+            if (ModelState.IsValid)
+            {
+
             int maxID = _repo.Bowlers.Max(u => u.BowlerID);
             b.BowlerID = maxID + 1;
             _repo.AddBowler(b);
             return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Teams = _repo.Teams.ToList();
+                return View(b);
+            }
+
+
+
+
         }
 
         [HttpGet]
